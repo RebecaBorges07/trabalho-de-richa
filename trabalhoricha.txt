@@ -1,0 +1,45 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Bem-vindo à DreamBook's! Olhe nossos livros:");
+
+        var books = new[]
+        {
+            new { Title = "O Pequeno Príncipe", Author = "Antoine de Saint-Exupéry", Price = "R$39,90", Description = "Um clássico da literatura infantil que narra a amizade entre um menino e um piloto de avião." },
+            new { Title = "É assim que acaba", Author = "Collen Hoover", Price = "R$59,90", Description = "O romance mais pessoal da carreira de Colleen Hoover aborda temas como violência doméstica e abuso psicológico de maneira sensível e direta. Lily, uma jovem que se mudou de uma pequena cidade do Maine para Boston, formou-se em marketing e abriu sua própria floricultura." },
+            new { Title = "1984", Author = "George Orwell", Price = "R$29,90", Description = "1984 é um famoso romance inglês escrito por George Orwell. A história dessa obra ocorre em um país fictício chamado Oceânia. 1984 mostra uma futura realidade distópica ocorrida no ano de 1984. Nessa realidade, a Inglaterra é comandada por um regime totalitarista em que todos são vigiados pelo Grande Irmão." },
+            new { Title = "O conto da aia", Author = "Margareth Atwood", Price = "R$69,90", Description = "retrata um mundo distópico, onde a humanidade se tornou em sua maioria infértil e os EUA foram transformados em uma espécie de ditadura religiosa." },
+            new { Title = "Guerra das papoulas", Author = " R. F. Kuang", Price = "R$44,90", Description = "Considerada uma das melhores fantasias de todos os tempos, A Guerra da Papoula narra a jornada mágica e sangrenta de uma jovem em uma nação prestes a ruirA guerra está no coração do Império Nikara, e o ópio corre em suas veias." },
+        };
+
+        Console.WriteLine("Livros disponíveis:");
+
+        for (int i = 0; i < books.Length; i++)
+        {
+            Console.WriteLine($"{i + 1}. {books[i].Title} - {books[i].Author} ({books[i].Price})");
+        }
+
+        Console.WriteLine("\nDigite o número do livro que você gostaria de ver:");
+        int choice = Convert.ToInt32(Console.ReadLine());
+
+        if (choice > 0 && choice <= books.Length)
+        {
+            var selectedBook = books[choice - 1];
+            Console.WriteLine($"\nTítulo: {selectedBook.Title}");
+            Console.WriteLine($"Autor: {selectedBook.Author}");
+            Console.WriteLine($"Preço: {selectedBook.Price}");
+            Console.WriteLine($"Descrição: {selectedBook.Description}");
+        }
+        else
+        {
+            Console.WriteLine("Escolha inválida. Por favor, digite um número válido.");
+        }
+
+
+        Console.WriteLine("\nPressione qualquer tecla para sair.");
+        Console.ReadKey();
+    }
+}
